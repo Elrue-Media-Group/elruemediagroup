@@ -1,0 +1,12 @@
+{
+  "s3BucketName": "your-bucket-name",
+  "cloudfrontDistributionId": "your-distribution-id",
+  "region": "us-east-1",
+  "notes": [
+    "Copy this file to aws-config.json and fill in your values",
+    "Make sure your S3 bucket has static website hosting enabled",
+    "Configure CloudFront to point to your S3 bucket",
+    "Set up proper CORS and bucket policies for CloudFront access"
+  ]
+}
+
