@@ -397,6 +397,20 @@
   grid-row: span 2;
 }
 
+.link-card.disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.link-card.disabled:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.link-card.disabled:hover::before {
+  opacity: 0;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   text-align: center;

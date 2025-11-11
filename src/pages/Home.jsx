@@ -22,6 +22,7 @@ function Home() {
       badge: 'Coming Soon',
       logo: getImageUrl('qaaidepo-logo1.png'),
       category: 'project',
+      disabled: true,
       techStack: ['React', 'Node.js', 'AWS CloudFront', 'AWS S3', 'AI/ML'],
       features: [
         'AI-powered test generation',
@@ -124,16 +125,11 @@ function Home() {
                 return (
                   <div
                     key={link.id}
-                    className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''}`}
+                    className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''} ${link.disabled ? 'disabled' : ''}`}
                   >
                     {link.badge && <span className="card-badge">{link.badge}</span>}
 
-                    <a
-                      href={link.url}
-                      target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
-                      rel="noopener noreferrer"
-                      className="card-main-link"
-                    >
+                    {link.disabled ? (
                       <div className="card-content">
                         {link.logo ? (
                           <img src={link.logo} alt={link.title} className="link-logo" />
@@ -143,7 +139,24 @@ function Home() {
                         <h2 className="link-title">{link.title}</h2>
                         <p className="link-description">{link.description}</p>
                       </div>
-                    </a>
+                    ) : (
+                      <a
+                        href={link.url}
+                        target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
+                        rel="noopener noreferrer"
+                        className="card-main-link"
+                      >
+                        <div className="card-content">
+                          {link.logo ? (
+                            <img src={link.logo} alt={link.title} className="link-logo" />
+                          ) : (
+                            <div className="link-icon">{link.icon}</div>
+                          )}
+                          <h2 className="link-title">{link.title}</h2>
+                          <p className="link-description">{link.description}</p>
+                        </div>
+                      </a>
+                    )}
 
                     {hasDetails && (
                       <>
@@ -231,16 +244,11 @@ function Home() {
                 return (
                   <div
                     key={link.id}
-                    className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''}`}
+                    className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''} ${link.disabled ? 'disabled' : ''}`}
                   >
                     {link.badge && <span className="card-badge">{link.badge}</span>}
 
-                    <a
-                      href={link.url}
-                      target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
-                      rel="noopener noreferrer"
-                      className="card-main-link"
-                    >
+                    {link.disabled ? (
                       <div className="card-content">
                         {link.logo ? (
                           <img src={link.logo} alt={link.title} className="link-logo" />
@@ -250,7 +258,24 @@ function Home() {
                         <h2 className="link-title">{link.title}</h2>
                         <p className="link-description">{link.description}</p>
                       </div>
-                    </a>
+                    ) : (
+                      <a
+                        href={link.url}
+                        target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
+                        rel="noopener noreferrer"
+                        className="card-main-link"
+                      >
+                        <div className="card-content">
+                          {link.logo ? (
+                            <img src={link.logo} alt={link.title} className="link-logo" />
+                          ) : (
+                            <div className="link-icon">{link.icon}</div>
+                          )}
+                          <h2 className="link-title">{link.title}</h2>
+                          <p className="link-description">{link.description}</p>
+                        </div>
+                      </a>
+                    )}
 
                     {hasDetails && (
                       <>
