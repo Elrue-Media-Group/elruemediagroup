@@ -6,11 +6,12 @@ function Bio() {
   return (
     <div className="app bio-page">
       <div className="container">
-        <nav className="breadcrumb">
-          <Link to="/" className="breadcrumb-link">← Back to Home</Link>
-        </nav>
+        <main className="main-content">
+          <nav className="breadcrumb">
+            <Link to="/" className="breadcrumb-link">← Back to Home</Link>
+          </nav>
 
-        <header className="bio-header">
+          <header className="bio-header">
           <div className="bio-header-content">
             <img
               src={getImageUrl('tony.jpeg')}
@@ -30,7 +31,7 @@ function Bio() {
           </div>
         </header>
 
-        <main className="bio-content">
+        <div className="bio-content">
           <section className="bio-section">
             <h2 className="section-title">About</h2>
             <div className="bio-text">
@@ -136,6 +137,19 @@ function Bio() {
             </div>
           </section>
 
+          <section className="bio-section">
+            <h2 className="section-title">Elrue Media Group</h2>
+            <div className="bio-text">
+              <p>
+                Elrue Media Group serves as the parent organization for Tony's personal technology projects
+                and hobby ventures. These projects provide an opportunity to explore emerging technologies,
+                experiment with AI and machine learning applications, and continue expanding skills in modern
+                cloud architecture across both AWS and Azure platforms. These are passion projects pursued
+                outside of professional work, focused on learning, innovation, and creative problem-solving.
+              </p>
+            </div>
+          </section>
+
           <section className="bio-section mission-section">
             <h2 className="section-title">Mission</h2>
             <div className="mission-card">
@@ -147,7 +161,7 @@ function Bio() {
               </p>
             </div>
           </section>
-        </main>
+        </div>
 
         <footer className="footer">
           <img
@@ -157,6 +171,7 @@ function Bio() {
           />
           <p>&copy; {new Date().getFullYear()} Elrue Media Group. All rights reserved.</p>
         </footer>
+      </main>
       </div>
     </div>
   )

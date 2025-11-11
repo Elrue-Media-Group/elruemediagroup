@@ -201,6 +201,9 @@ function Home() {
 
           <section className="links-section">
             <h2 className="section-title">Technology Projects</h2>
+            <p style={{ textAlign: 'center', color: 'rgba(255, 255, 255, 0.7)', fontSize: '1rem', marginBottom: '2rem', fontStyle: 'italic' }}>
+              Personal hobby projects exploring AI, cloud computing, and modern web technologies
+            </p>
             <div className="links-grid">
               {projectLinks.map((link) => {
                 const isExpanded = expandedCard === link.id
