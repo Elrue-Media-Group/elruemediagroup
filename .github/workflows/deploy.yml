@@ -34,7 +34,8 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync dist/ s3://elruemediagroup --delete
+          aws s3 sync dist/ s3://elruemediagroup --delete --cache-control "public,max-age=31536000,immutable" --exclude "*.html"
+          aws s3 sync dist/ s3://elruemediagroup --delete --cache-control "public,max-age=0,must-revalidate" --exclude "*" --include "*.html"
 
       - name: Invalidate CloudFront cache (optional)
         if: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID != '' }}
