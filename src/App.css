@@ -194,7 +194,7 @@
 .card-badge {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.9), rgba(245, 158, 11, 0.9));
   color: #1e293b;
   padding: 0.4rem 0.9rem;
@@ -205,6 +205,18 @@
   letter-spacing: 0.5px;
   z-index: 2;
   box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.card-badge.powered-by-badge {
+  top: 1rem;
+  right: 1rem;
+  left: auto;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(139, 92, 246, 0.9));
+  color: #ffffff;
+  text-transform: none;
+  font-size: 0.7rem;
+  padding: 0.35rem 0.85rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .link-icon {

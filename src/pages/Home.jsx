@@ -20,6 +20,7 @@ function Home() {
       url: 'https://qaaidepot.com',
       description: 'Intelligent, automated quality engineering for modern teams',
       badge: 'Coming Soon',
+      poweredBy: 'Powered by AWS & Open AI',
       logo: getImageUrl('qaaidepo-logo1.png'),
       category: 'project',
       disabled: true,
@@ -35,6 +36,7 @@ function Home() {
       title: 'Layoff Lens',
       url: 'https://www.layofflens.com/',
       description: 'Tech industry layoff tracking and insights',
+      poweredBy: 'Powered by Azure & Open AI',
       logo: 'https://layofflens.blob.core.windows.net/layofflens/logo-redo.png',
       category: 'project',
       techStack: ['Next.js 15', 'Azure Static Web Apps', 'Azure Functions', 'Azure Table Storage', 'Azure Blob Storage'],
@@ -50,6 +52,7 @@ function Home() {
       title: 'World of Elrue',
       url: 'https://worldofelrue.com/',
       description: 'Creative projects and multimedia showcase',
+      poweredBy: 'Powered by AWS',
       logo: 'https://d9amq8b4jzm6k.cloudfront.net/elrueai.png',
       category: 'project',
       techStack: ['React', 'AWS CloudFront', 'AWS S3', 'Three.js'],
@@ -111,6 +114,7 @@ function Home() {
                       className={`link-card ${link.category}`}
                     >
                       {link.badge && <span className="card-badge">{link.badge}</span>}
+                      {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
                       {link.logo ? (
                         <img src={link.logo} alt={link.title} className="link-logo" />
                       ) : (
@@ -128,6 +132,7 @@ function Home() {
                     className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''} ${link.disabled ? 'disabled' : ''}`}
                   >
                     {link.badge && <span className="card-badge">{link.badge}</span>}
+                    {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
 
                     {link.disabled ? (
                       <div className="card-content">
@@ -230,6 +235,7 @@ function Home() {
                       className={`link-card ${link.category}`}
                     >
                       {link.badge && <span className="card-badge">{link.badge}</span>}
+                      {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
                       {link.logo ? (
                         <img src={link.logo} alt={link.title} className="link-logo" />
                       ) : (
@@ -247,6 +253,7 @@ function Home() {
                     className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''} ${link.disabled ? 'disabled' : ''}`}
                   >
                     {link.badge && <span className="card-badge">{link.badge}</span>}
+                    {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
 
                     {link.disabled ? (
                       <div className="card-content">
