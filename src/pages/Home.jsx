@@ -19,11 +19,9 @@ function Home() {
       title: 'QA AI Depot',
       url: 'https://qaaidepot.com',
       description: 'Intelligent, automated quality engineering for modern teams',
-      badge: 'Coming Soon',
       poweredBy: 'Powered by AWS & Open AI',
       logo: getImageUrl('qaaidepo-logo1.png'),
       category: 'project',
-      disabled: true,
       techStack: ['React', 'Node.js', 'AWS CloudFront', 'AWS S3', 'AI/ML'],
       features: [
         'AI-powered test generation',
