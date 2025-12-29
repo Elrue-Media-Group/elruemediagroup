@@ -88,6 +88,15 @@
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
+.subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.75rem 0;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
 .tagline {
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.85);
@@ -683,6 +692,10 @@
 
   .main-title {
     font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
   }
 
   .tagline {

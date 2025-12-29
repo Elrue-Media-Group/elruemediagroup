@@ -92,6 +92,7 @@ function Home() {
           />
           <div className="header-text">
             <h1 className="main-title">Tony Cerrato</h1>
+            <p className="subtitle">Personal Development Sandbox</p>
             <p className="tagline">Technology Leader | Cloud Engineering | AI-Driven Quality</p>
           </div>
         </header>
