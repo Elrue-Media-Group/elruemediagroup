@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getImageUrl } from '../config'
+import { UserCircle, Briefcase, Github, ChevronDown, ChevronUp } from 'lucide-react'
 
 function Home() {
   const [expandedCard, setExpandedCard] = useState(null)
@@ -10,7 +11,7 @@ function Home() {
       title: 'Professional Bio',
       url: '/bio',
       description: '30+ years in technology leadership, cloud engineering, and quality automation',
-      icon: '👤',
+      icon: 'UserCircle',
       category: 'internal',
       isInternal: true
     },
@@ -65,7 +66,7 @@ function Home() {
       title: 'LinkedIn',
       url: 'https://www.linkedin.com/in/tony-cerrato-a22a123',
       description: 'Connect and view professional experience',
-      icon: '💼',
+      icon: 'Briefcase',
       category: 'social'
     },
     {
@@ -73,13 +74,27 @@ function Home() {
       title: 'GitHub',
       url: 'https://github.com/Elrue-Media-Group',
       description: 'Explore code and open source projects',
-      icon: '💻',
+      icon: 'Github',
       category: 'social'
     }
   ])
 
   const professionalLinks = links.filter(link => link.category === 'internal' || link.category === 'social')
   const projectLinks = links.filter(link => link.category === 'project')
+
+  const getIcon = (iconName) => {
+    const iconProps = { size: 48, strokeWidth: 1.5 }
+    switch(iconName) {
+      case 'UserCircle':
+        return <UserCircle {...iconProps} />
+      case 'Briefcase':
+        return <Briefcase {...iconProps} />
+      case 'Github':
+        return <Github {...iconProps} />
+      default:
+        return null
+    }
+  }
 
   return (
     <div className="app">
@@ -117,7 +132,7 @@ function Home() {
                       {link.logo ? (
                         <img src={link.logo} alt={link.title} className="link-logo" />
                       ) : (
-                        <div className="link-icon">{link.icon}</div>
+                        <div className="link-icon">{getIcon(link.icon)}</div>
                       )}
                       <h2 className="link-title">{link.title}</h2>
                       <p className="link-description">{link.description}</p>
@@ -138,7 +153,7 @@ function Home() {
                         {link.logo ? (
                           <img src={link.logo} alt={link.title} className="link-logo" />
                         ) : (
-                          <div className="link-icon">{link.icon}</div>
+                          <div className="link-icon">{getIcon(link.icon)}</div>
                         )}
                         <h2 className="link-title">{link.title}</h2>
                         <p className="link-description">{link.description}</p>
@@ -154,7 +169,7 @@ function Home() {
                           {link.logo ? (
                             <img src={link.logo} alt={link.title} className="link-logo" />
                           ) : (
-                            <div className="link-icon">{link.icon}</div>
+                            <div className="link-icon">{getIcon(link.icon)}</div>
                           )}
                           <h2 className="link-title">{link.title}</h2>
                           <p className="link-description">{link.description}</p>
@@ -169,7 +184,7 @@ function Home() {
                           onClick={() => setExpandedCard(isExpanded ? null : link.id)}
                           aria-label={isExpanded ? 'Show less' : 'Show more'}
                         >
-                          {isExpanded ? '▲ Less' : '▼ More'}
+                          {isExpanded ? <><ChevronUp size={16} /> Less</> : <><ChevronDown size={16} /> More</>}
                         </button>
 
                         {isExpanded && (
@@ -203,7 +218,7 @@ function Home() {
                                 rel="noopener noreferrer"
                                 className="github-link"
                               >
-                                <span className="github-icon">💻</span> View on GitHub
+                                <Github size={20} className="github-icon" /> View on GitHub
                               </a>
                             )}
                           </div>
@@ -238,7 +253,7 @@ function Home() {
                       {link.logo ? (
                         <img src={link.logo} alt={link.title} className="link-logo" />
                       ) : (
-                        <div className="link-icon">{link.icon}</div>
+                        <div className="link-icon">{getIcon(link.icon)}</div>
                       )}
                       <h2 className="link-title">{link.title}</h2>
                       <p className="link-description">{link.description}</p>
@@ -259,7 +274,7 @@ function Home() {
                         {link.logo ? (
                           <img src={link.logo} alt={link.title} className="link-logo" />
                         ) : (
-                          <div className="link-icon">{link.icon}</div>
+                          <div className="link-icon">{getIcon(link.icon)}</div>
                         )}
                         <h2 className="link-title">{link.title}</h2>
                         <p className="link-description">{link.description}</p>
@@ -275,7 +290,7 @@ function Home() {
                           {link.logo ? (
                             <img src={link.logo} alt={link.title} className="link-logo" />
                           ) : (
-                            <div className="link-icon">{link.icon}</div>
+                            <div className="link-icon">{getIcon(link.icon)}</div>
                           )}
                           <h2 className="link-title">{link.title}</h2>
                           <p className="link-description">{link.description}</p>
@@ -290,7 +305,7 @@ function Home() {
                           onClick={() => setExpandedCard(isExpanded ? null : link.id)}
                           aria-label={isExpanded ? 'Show less' : 'Show more'}
                         >
-                          {isExpanded ? '▲ Less' : '▼ More'}
+                          {isExpanded ? <><ChevronUp size={16} /> Less</> : <><ChevronDown size={16} /> More</>}
                         </button>
 
                         {isExpanded && (
@@ -324,7 +339,7 @@ function Home() {
                                 rel="noopener noreferrer"
                                 className="github-link"
                               >
-                                <span className="github-icon">💻</span> View on GitHub
+                                <Github size={20} className="github-icon" /> View on GitHub
                               </a>
                             )}
                           </div>
