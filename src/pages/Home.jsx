@@ -47,6 +47,22 @@ function Home() {
     },
     {
       id: 2,
+      title: 'Context Planner',
+      url: 'https://contextplanner.com/',
+      description: 'AI-powered planning and idea analysis platform',
+      poweredBy: 'Powered by AWS & Open AI',
+      logo: 'https://d3tbaba9xfyjnl.cloudfront.net/context-logo3size.png',
+      category: 'project',
+      techStack: ['React', 'AWS Lambda', 'AWS API Gateway', 'Amazon DynamoDB', 'Amazon Bedrock', 'AWS Cognito', 'AWS S3', 'AWS CloudFront', 'Amazon SQS'],
+      features: [
+        'AI-powered idea analysis and planning workflows',
+        'Serverless architecture with AWS Lambda',
+        'Secure authentication with AWS Cognito',
+        'Async processing with Amazon SQS'
+      ]
+    },
+    {
+      id: 3,
       title: 'QA AI Depot',
       url: 'https://qaaidepot.com',
       description: 'Intelligent, automated quality engineering for modern teams',
@@ -61,7 +77,7 @@ function Home() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: 'Layoff Lens',
       url: 'https://www.layofflens.com/',
       description: 'Tech industry layoff tracking and insights',
@@ -77,7 +93,7 @@ function Home() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: 'World of Elrue',
       url: 'https://worldofelrue.com/',
       description: 'Creative projects and multimedia showcase',
@@ -92,7 +108,7 @@ function Home() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: 'LinkedIn',
       url: 'https://www.linkedin.com/in/tony-cerrato-a22a123',
       description: 'Connect and view professional experience',
@@ -100,7 +116,7 @@ function Home() {
       category: 'social'
     },
     {
-      id: 6,
+      id: 7,
       title: 'GitHub',
       url: 'https://github.com/Elrue-Media-Group',
       description: 'Explore code and open source projects',
@@ -295,25 +311,31 @@ function Home() {
             <p className="section-subtitle">
               Personal hobby projects exploring AI, cloud computing, and modern web technologies
             </p>
-            <div className="projects-grid">
+            <div className="projects-list">
               {projectLinks.map((link) => (
-                <div key={link.id} className="project-card">
-                  <div className="project-card-header">
+                <div key={link.id} className="project-item">
+                  <div className="project-logo-container">
                     {link.logo && (
                       <img src={link.logo} alt={link.title} className="project-logo" />
                     )}
-                    {link.poweredBy && <span className="project-powered-badge">{link.poweredBy}</span>}
                   </div>
-                  <h3 className="project-title">{link.title}</h3>
-                  <p className="project-description">{link.description}</p>
-                  {link.techStack && (
-                    <div className="project-tech-stack">
-                      {link.techStack.map((tech, idx) => (
-                        <span key={idx} className="project-tech-badge">{tech}</span>
-                      ))}
+
+                  <div className="project-content">
+                    <div className="project-header">
+                      <h3 className="project-title">{link.title}</h3>
+                      {link.poweredBy && <span className="project-powered-badge">{link.poweredBy}</span>}
                     </div>
-                  )}
-                  <div className="project-links">
+                    <p className="project-description">{link.description}</p>
+                    {link.techStack && (
+                      <div className="project-tech-stack">
+                        {link.techStack.map((tech, idx) => (
+                          <span key={idx} className="project-tech-badge">{tech}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="project-actions">
                     <a
                       href={link.url}
                       target="_blank"
