@@ -12,7 +12,7 @@ function Home() {
       id: 'p1',
       title: 'AI-Powered Exploratory Testing Engine',
       description: 'White paper on leveraging AI for automated exploratory testing and intelligent test case generation',
-      url: 'https://qaaidepot.com/learn/papers/ai-exploratory-testing-engine',
+      url: '/papers/ai-exploratory-testing-engine',
       icon: 'FileText',
       type: 'Research Paper'
     },
@@ -20,7 +20,7 @@ function Home() {
       id: 'p2',
       title: 'Test Automation ROI Framework',
       description: 'Strategic guide for measuring and maximizing return on investment in test automation initiatives',
-      url: 'https://qaaidepot.com/learn/papers/test-automation-roi',
+      url: '/papers/test-automation-roi',
       icon: 'FileText',
       type: 'Research Paper'
     },
@@ -28,7 +28,7 @@ function Home() {
       id: 'p3',
       title: 'AI Test Explorer',
       description: 'Interactive AI-powered test exploration tool with real-time analysis',
-      url: 'https://qaaidepot.com/learn/examples/ai-test-explorer',
+      url: '/examples/ai-test-explorer',
       githubUrl: 'https://github.com/Elrue-Media-Group/aitestexplorer',
       icon: 'Code2',
       type: 'Code Project'
@@ -63,17 +63,20 @@ function Home() {
     },
     {
       id: 3,
-      title: 'QA AI Depot',
-      url: 'https://qaaidepot.com',
-      description: 'Intelligent, automated quality engineering for modern teams',
-      poweredBy: 'Powered by AWS & Open AI',
-      logo: getImageUrl('qaaidepo-logo1.png'),
+      title: 'ContextStudy',
+      url: 'https://contextstudy.com/',
+      description: 'AI-powered study companion that transforms any topic into structured, personalized learning experiences',
+      poweredBy: 'Powered by AWS & OpenAI',
+      logo: 'https://d3tbaba9xfyjnl.cloudfront.net/contextstudy-logo-image3.png',
+      subtitle: 'AI Exam Prep',
       category: 'project',
-      techStack: ['React', 'Node.js', 'AWS CloudFront', 'AWS S3', 'AI/ML'],
+      badge: 'Private Beta',
+      techStack: ['React', 'TypeScript', 'Vite', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'AWS Cognito', 'S3 + CloudFront', 'OpenAI GPT', 'Zod'],
       features: [
-        'AI-powered test generation',
-        'Automated quality analysis',
-        'Cloud-native AWS architecture'
+        'AI-generated study plans with custom prompt engineering',
+        'Serverless architecture with AWS Lambda & API Gateway',
+        'Secure authentication with AWS Cognito',
+        'Schema-validated AI outputs with Zod'
       ]
     },
     {
@@ -150,7 +153,7 @@ function Home() {
 
   return (
     <div className="app">
-      <div className="container">
+      <div className="page-container">
         <header className="header">
           <img
             src={getImageUrl('elruemediagroup-logoHD.png')}
@@ -315,8 +318,16 @@ function Home() {
               {projectLinks.map((link) => (
                 <div key={link.id} className="project-item">
                   <div className="project-logo-container">
-                    {link.logo && (
-                      <img src={link.logo} alt={link.title} className="project-logo" />
+                    {link.subtitle ? (
+                      <div className="project-brand">
+                        <img src={link.logo} alt={link.title} className="project-brand-icon" />
+                        <div className="project-brand-text">
+                          <span className="project-brand-name">{link.title}</span>
+                          <span className="project-brand-subtitle">{link.subtitle}</span>
+                        </div>
+                      </div>
+                    ) : (
+                      link.logo && <img src={link.logo} alt={link.title} className="project-logo" />
                     )}
                   </div>
 
@@ -376,10 +387,8 @@ function Home() {
                       <h3 className="publication-title">{item.title}</h3>
                     </div>
                     <div className="publication-links">
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to={item.url}
                         className="pub-link-btn primary"
                       >
                         {item.type === 'Code Project' ? (
@@ -387,7 +396,7 @@ function Home() {
                         ) : (
                           <><FileText size={14} /> Read Paper</>
                         )}
-                      </a>
+                      </Link>
                       {item.githubUrl && (
                         <a
                           href={item.githubUrl}

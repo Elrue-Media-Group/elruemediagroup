@@ -5,7 +5,7 @@ import { getImageUrl } from '../config'
 function Bio() {
   return (
     <div className="app bio-page">
-      <div className="container">
+      <div className="page-container">
         <main className="main-content">
           <nav className="breadcrumb">
             <Link to="/" className="breadcrumb-link">← Back to Home</Link>
@@ -154,10 +154,10 @@ function Bio() {
             <h2 className="section-title">Mission</h2>
             <div className="mission-card">
               <p className="mission-text">
-                Today, Tony applies his experience to <strong>QA AI Depot</strong>, combining decades
-                of hands-on engineering with the power of artificial intelligence to transform how teams
-                test, analyze, and deliver quality software. His mission is simple: <em>make intelligent,
-                automated quality engineering accessible to every development team.</em>
+                Today, Tony applies his experience to <strong>AI-focused technology projects</strong>, combining decades
+                of hands-on engineering with the power of artificial intelligence to build tools that help
+                people learn, plan, and work more effectively. His mission is simple: <em>leverage AI and modern
+                cloud architecture to create accessible, intelligent solutions that solve real problems.</em>
               </p>
             </div>
           </section>
