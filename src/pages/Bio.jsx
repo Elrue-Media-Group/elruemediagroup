@@ -55,6 +55,12 @@ function Bio() {
                 and implemented AI-based systems that improve efficiency and insight across development
                 lifecycles—from regulated industries to modern cloud-native platforms.
               </p>
+              <p>
+                Beyond his professional work, Tony is a builder at heart. He is constantly designing and
+                developing full-stack applications — from AI-powered learning tools to cloud-native
+                platforms — driven by a genuine curiosity for how emerging technologies can solve real
+                problems. The strongest of these he makes available to the community.
+              </p>
             </div>
           </section>
 
@@ -141,11 +147,11 @@ function Bio() {
             <h2 className="section-title">Elrue Media Group</h2>
             <div className="bio-text">
               <p>
-                Elrue Media Group serves as the parent organization for Tony's personal technology projects
-                and hobby ventures. These projects provide an opportunity to explore emerging technologies,
-                experiment with AI and machine learning applications, and continue expanding skills in modern
-                cloud architecture across both AWS and Azure platforms. These are passion projects pursued
-                outside of professional work, focused on learning, innovation, and creative problem-solving.
+                Elrue Media Group is the home for Tony's independent technology projects. These projects
+                provide an opportunity to explore emerging technologies, experiment with AI and machine
+                learning applications, and continue expanding skills in modern cloud architecture across
+                both AWS and Azure platforms. Built outside of professional work, they reflect a commitment
+                to continuous learning, hands-on innovation, and creative problem-solving.
               </p>
             </div>
           </section>

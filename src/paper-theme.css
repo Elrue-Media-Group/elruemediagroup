@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 .paper-page {
-  /* Exact dark mode values from qaaidepot */
+  /* Dark mode color values */
   --background: 222.2 84% 4.9%;
   --foreground: 210 40% 98%;
   --card: 222.2 84% 4.9%;

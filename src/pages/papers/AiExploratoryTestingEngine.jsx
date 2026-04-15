@@ -46,7 +46,7 @@ export default function AIExploratoryTestingEngine() {
                     className="absolute top-0 left-0 w-full h-full rounded-lg"
                     src="https://www.youtube.com/embed/y6ba-iI8kgM"
                     title="Video Presentation: No-Code AI Exploratory Testing Engine"
-                    frameBorder="0"
+                    style={{ border: 'none' }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
@@ -96,7 +96,7 @@ export default function AIExploratoryTestingEngine() {
             Traditional scripted automation, while valuable for regression testing, cannot replicate this adaptability. Scripts follow rigid paths, checking only predetermined conditions. This creates a persistent gap in testing coverage—areas where human exploratory testing excels but proves too time-consuming and expensive to perform comprehensively.
           </p>
           <p className="text-muted-foreground">
-            The QA AI Depot No-Code Exploratory Testing Engine addresses this gap by enabling artificial intelligence to perform genuinely exploratory testing. The system understands user interfaces visually through AI Vision technology, interprets meaning and intent behind interface elements, autonomously decides what to test based on learned patterns, generates and executes test cases in real-time, and explains its reasoning through detailed logs. This document details the system architecture, the AI reasoning model that drives decision-making, the AI Vision system that enables visual understanding, context integration mechanisms that provide domain knowledge, and how this approach represents the future state of AI in quality assurance.
+            The No-Code Exploratory Testing Engine addresses this gap by enabling artificial intelligence to perform genuinely exploratory testing. The system understands user interfaces visually through AI Vision technology, interprets meaning and intent behind interface elements, autonomously decides what to test based on learned patterns, generates and executes test cases in real-time, and explains its reasoning through detailed logs. This document details the system architecture, the AI reasoning model that drives decision-making, the AI Vision system that enables visual understanding, context integration mechanisms that provide domain knowledge, and how this approach represents the future state of AI in quality assurance.
           </p>
         </div>
 
@@ -649,9 +649,9 @@ export default function AIExploratoryTestingEngine() {
 
         {/* Case Study */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold">10. Case Study: QA AI Depot</h2>
+          <h2 className="text-2xl font-bold">10. Case Study</h2>
           <p className="text-muted-foreground">
-            To demonstrate the capabilities of this approach in a constrained, efficient context, we conducted an exploratory session on the QA AI Depot website itself, limiting exploration to just two pages and three interactive actions. Even with these severe constraints, the AI produced remarkably comprehensive and valuable output.
+            To demonstrate the capabilities of this approach in a constrained, efficient context, we conducted an exploratory session on a live website, limiting exploration to just two pages and three interactive actions. Even with these severe constraints, the AI produced remarkably comprehensive and valuable output.
           </p>
 
           <div className="overflow-x-auto my-6">

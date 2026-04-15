@@ -7,6 +7,32 @@
   overflow: hidden;
 }
 
+/* ===== SKIP LINK ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: #ffffff;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
 /* ===== LAYOUT ===== */
 .page-container {
   width: 100%;
@@ -572,7 +598,7 @@
 }
 
 .footer p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
   font-size: 0.9rem;
 }
@@ -879,7 +905,7 @@
 /* ===== PUBLICATIONS & CODE SECTIONS ===== */
 .section-subtitle {
   text-align: left;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   margin: 0 0 2rem 0;
   font-style: italic;
@@ -1204,14 +1230,6 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .publication-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .publication-card {
-    padding: 1.25rem;
-  }
-
   .publication-links {
     flex-direction: column;
   }

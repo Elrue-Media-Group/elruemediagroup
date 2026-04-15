@@ -5,6 +5,7 @@ import Bio from './pages/Bio'
 import AiExploratoryTestingEngine from './pages/papers/AiExploratoryTestingEngine'
 import TestAutomationROI from './pages/papers/TestAutomationROI'
 import AITestExplorerPage from './pages/AITestExplorerPage'
+import NotFound from './pages/NotFound'
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/papers/ai-exploratory-testing-engine" element={<AiExploratoryTestingEngine />} />
         <Route path="/papers/test-automation-roi" element={<TestAutomationROI />} />
         <Route path="/examples/ai-test-explorer" element={<AITestExplorerPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )

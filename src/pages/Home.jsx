@@ -7,7 +7,7 @@ function Home() {
   const [expandedCard, setExpandedCard] = useState(null)
 
   // Publications & Research - Combined white papers and code examples
-  const [publications] = useState([
+  const publications = [
     {
       id: 'p1',
       title: 'AI-Powered Exploratory Testing Engine',
@@ -33,9 +33,9 @@ function Home() {
       icon: 'Code2',
       type: 'Code Project'
     }
-  ])
+  ]
 
-  const [links] = useState([
+  const links = [
     {
       id: 1,
       title: 'Professional Bio',
@@ -50,7 +50,7 @@ function Home() {
       title: 'Context Planner',
       url: 'https://contextplanner.com/',
       description: 'AI-powered planning and idea analysis platform',
-      poweredBy: 'Powered by AWS & Open AI',
+      poweredBy: 'Powered by AWS & OpenAI',
       logo: 'https://d3tbaba9xfyjnl.cloudfront.net/context-logo3size.png',
       category: 'project',
       techStack: ['React', 'AWS Lambda', 'AWS API Gateway', 'Amazon DynamoDB', 'Amazon Bedrock', 'AWS Cognito', 'AWS S3', 'AWS CloudFront', 'Amazon SQS'],
@@ -126,7 +126,7 @@ function Home() {
       icon: 'Github',
       category: 'social'
     }
-  ])
+  ]
 
   const professionalLinks = links.filter(link => link.category === 'internal' || link.category === 'social')
   const projectLinks = links.filter(link => link.category === 'project')
@@ -153,6 +153,7 @@ function Home() {
 
   return (
     <div className="app">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <div className="page-container">
         <header className="header">
           <img
@@ -162,12 +163,12 @@ function Home() {
           />
           <div className="header-text">
             <h1 className="main-title">Tony Cerrato</h1>
-            <p className="subtitle">Personal Development Sandbox</p>
+            <p className="subtitle">Independent Projects & Continuous Learning</p>
             <p className="tagline">Technology Leader | Cloud Engineering | AI-Driven Quality</p>
           </div>
         </header>
 
-        <main className="main-content">
+        <main className="main-content" id="main-content">
           <section className="links-section">
             <h2 className="section-title">Professional Information</h2>
             <div className="links-grid">
@@ -204,6 +205,7 @@ function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`link-card ${link.category}`}
+                      aria-label={`${link.title} — ${link.description} (opens in new tab)`}
                     >
                       {link.badge && <span className="card-badge">{link.badge}</span>}
                       {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
@@ -242,6 +244,7 @@ function Home() {
                         target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
                         rel="noopener noreferrer"
                         className="card-main-link"
+                        aria-label={`Visit ${link.title} (opens in new tab)`}
                       >
                         <div className="card-content">
                           {link.logo ? (
@@ -312,7 +315,7 @@ function Home() {
           <section className="links-section">
             <h2 className="section-title">Technology Projects</h2>
             <p className="section-subtitle">
-              Personal hobby projects exploring AI, cloud computing, and modern web technologies
+              Independently built platforms spanning AI, cloud infrastructure, and modern web development
             </p>
             <div className="projects-list">
               {projectLinks.map((link) => (
