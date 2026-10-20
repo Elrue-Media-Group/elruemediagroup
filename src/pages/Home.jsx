@@ -97,17 +97,19 @@ function Home() {
     },
     {
       id: 5,
-      title: 'World of Elrue',
-      url: 'https://worldofelrue.com/',
-      description: 'Creative projects and multimedia showcase',
+      title: 'Endless Expanse',
+      url: 'https://endlessexpanse.net/',
+      description: 'Atlas and chronicle of an original space-fantasy universe: an interactive 3D star map plus a reference wiki',
       poweredBy: 'Powered by AWS',
-      logo: 'https://d9amq8b4jzm6k.cloudfront.net/elrueai.png',
+      logo: 'https://endlessexpanse.net/favicon.svg',
+      subtitle: 'Space Fantasy',
       category: 'project',
-      techStack: ['React', 'AWS CloudFront', 'AWS S3', 'Three.js'],
+      techStack: ['React 19', 'TypeScript', 'Vite', 'Three.js', 'React Three Fiber', 'Markdown (remark)', 'S3 + CloudFront', 'GitHub Actions'],
       features: [
-        'Interactive 3D experiences',
-        'Multimedia gallery',
-        'High-performance CDN delivery'
+        'Interactive 3D star map built with React Three Fiber',
+        'Wiki pages generated from Markdown at build time',
+        'Automated content checks, unit tests, and Playwright end-to-end tests',
+        'Static deploy to S3 + CloudFront from CI'
       ]
     },
     {
