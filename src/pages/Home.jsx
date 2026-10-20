@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { getImageUrl } from '../config'
-import { UserCircle, Briefcase, Github, ChevronDown, ChevronUp, FileText, Code2, Star, ExternalLink } from 'lucide-react'
+import { UserCircle, Linkedin, Github, FileText, Code2, ExternalLink } from 'lucide-react'
 
 function Home() {
-  const [expandedCard, setExpandedCard] = useState(null)
-
   // Publications & Research - Combined white papers and code examples
   const publications = [
     {
@@ -35,24 +33,13 @@ function Home() {
     }
   ]
 
-  const links = [
+  const projects = [
     {
-      id: 1,
-      title: 'Professional Bio',
-      url: '/bio',
-      description: '30+ years in technology leadership, cloud engineering, and quality automation',
-      icon: 'UserCircle',
-      category: 'internal',
-      isInternal: true
-    },
-    {
-      id: 2,
       title: 'Context Planner',
       url: 'https://contextplanner.com/',
       description: 'AI-powered planning and idea analysis platform',
       poweredBy: 'Powered by AWS & OpenAI',
       logo: 'https://d3tbaba9xfyjnl.cloudfront.net/context-logo3size.png',
-      category: 'project',
       techStack: ['React', 'AWS Lambda', 'AWS API Gateway', 'Amazon DynamoDB', 'Amazon Bedrock', 'AWS Cognito', 'AWS S3', 'AWS CloudFront', 'Amazon SQS'],
       features: [
         'AI-powered idea analysis and planning workflows',
@@ -62,14 +49,12 @@ function Home() {
       ]
     },
     {
-      id: 3,
       title: 'ContextStudy',
       url: 'https://contextstudy.com/',
       description: 'AI-powered study companion that transforms any topic into structured, personalized learning experiences',
       poweredBy: 'Powered by AWS & OpenAI',
       logo: 'https://d3tbaba9xfyjnl.cloudfront.net/contextstudy-logo-image3.png',
       subtitle: 'AI Exam Prep',
-      category: 'project',
       badge: 'Private Beta',
       techStack: ['React', 'TypeScript', 'Vite', 'AWS Lambda', 'API Gateway', 'DynamoDB', 'AWS Cognito', 'S3 + CloudFront', 'OpenAI GPT', 'Zod'],
       features: [
@@ -80,13 +65,11 @@ function Home() {
       ]
     },
     {
-      id: 4,
       title: 'Layoff Lens',
       url: 'https://www.layofflens.com/',
       description: 'Tech industry layoff tracking and insights',
       poweredBy: 'Powered by Azure & Open AI',
       logo: 'https://layofflens.blob.core.windows.net/layofflens/logo-redo.png',
-      category: 'project',
       techStack: ['Next.js 15', 'Azure Static Web Apps', 'Azure Functions', 'Azure Table Storage', 'Azure Blob Storage'],
       github: 'https://github.com/Elrue-Media-Group/layofflens',
       features: [
@@ -96,14 +79,12 @@ function Home() {
       ]
     },
     {
-      id: 5,
       title: 'Endless Expanse',
       url: 'https://endlessexpanse.net/',
       description: 'Atlas and chronicle of an original space-fantasy universe: an interactive 3D star map plus a reference wiki',
       poweredBy: 'Powered by AWS',
       logo: 'https://endlessexpanse.net/favicon.svg',
       subtitle: 'Space Fantasy',
-      category: 'project',
       techStack: ['React 19', 'TypeScript', 'Vite', 'Three.js', 'React Three Fiber', 'Markdown (remark)', 'S3 + CloudFront', 'GitHub Actions'],
       features: [
         'Interactive 3D star map built with React Three Fiber',
@@ -111,47 +92,8 @@ function Home() {
         'Automated content checks, unit tests, and Playwright end-to-end tests',
         'Static deploy to S3 + CloudFront from CI'
       ]
-    },
-    {
-      id: 6,
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/tony-cerrato-a22a123',
-      description: 'Connect and view professional experience',
-      icon: 'Briefcase',
-      category: 'social'
-    },
-    {
-      id: 7,
-      title: 'GitHub',
-      url: 'https://github.com/Elrue-Media-Group',
-      description: 'Explore code and open source projects',
-      icon: 'Github',
-      category: 'social'
     }
   ]
-
-  const professionalLinks = links.filter(link => link.category === 'internal' || link.category === 'social')
-  const projectLinks = links.filter(link => link.category === 'project')
-
-  const getIcon = (iconName, size = 48) => {
-    const iconProps = { size, strokeWidth: 1.5 }
-    switch(iconName) {
-      case 'UserCircle':
-        return <UserCircle {...iconProps} />
-      case 'Briefcase':
-        return <Briefcase {...iconProps} />
-      case 'Github':
-        return <Github {...iconProps} />
-      case 'FileText':
-        return <FileText {...iconProps} />
-      case 'Code2':
-        return <Code2 {...iconProps} />
-      case 'Star':
-        return <Star {...iconProps} />
-      default:
-        return null
-    }
-  }
 
   return (
     <div className="app">
@@ -171,146 +113,28 @@ function Home() {
         </header>
 
         <main className="main-content" id="main-content">
-          <section className="links-section">
-            <h2 className="section-title">Professional Information</h2>
-            <div className="links-grid">
-              {professionalLinks.map((link) => {
-                const isExpanded = expandedCard === link.id
-                const hasDetails = link.techStack || link.github || link.features
-
-                if (link.isInternal) {
-                  return (
-                    <Link
-                      key={link.id}
-                      to={link.url}
-                      className={`link-card ${link.category}`}
-                    >
-                      {link.badge && <span className="card-badge">{link.badge}</span>}
-                      {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
-                      {link.logo ? (
-                        <img src={link.logo} alt={link.title} className="link-logo" />
-                      ) : (
-                        <div className="link-icon">{getIcon(link.icon)}</div>
-                      )}
-                      <h2 className="link-title">{link.title}</h2>
-                      <p className="link-description">{link.description}</p>
-                    </Link>
-                  )
-                }
-
-                // For external links (LinkedIn, GitHub)
-                if (link.category === 'social') {
-                  return (
-                    <a
-                      key={link.id}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`link-card ${link.category}`}
-                      aria-label={`${link.title} — ${link.description} (opens in new tab)`}
-                    >
-                      {link.badge && <span className="card-badge">{link.badge}</span>}
-                      {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
-                      {link.logo ? (
-                        <img src={link.logo} alt={link.title} className="link-logo" />
-                      ) : (
-                        <div className="link-icon">{getIcon(link.icon)}</div>
-                      )}
-                      <h2 className="link-title">{link.title}</h2>
-                      <p className="link-description">{link.description}</p>
-                    </a>
-                  )
-                }
-
-                return (
-                  <div
-                    key={link.id}
-                    className={`link-card ${link.category} ${isExpanded ? 'expanded' : ''} ${link.disabled ? 'disabled' : ''}`}
-                  >
-                    {link.badge && <span className="card-badge">{link.badge}</span>}
-                    {link.poweredBy && <span className="card-badge powered-by-badge">{link.poweredBy}</span>}
-
-                    {link.disabled ? (
-                      <div className="card-content">
-                        {link.logo ? (
-                          <img src={link.logo} alt={link.title} className="link-logo" />
-                        ) : (
-                          <div className="link-icon">{getIcon(link.icon)}</div>
-                        )}
-                        <h2 className="link-title">{link.title}</h2>
-                        <p className="link-description">{link.description}</p>
-                      </div>
-                    ) : (
-                      <a
-                        href={link.url}
-                        target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
-                        rel="noopener noreferrer"
-                        className="card-main-link"
-                        aria-label={`Visit ${link.title} (opens in new tab)`}
-                      >
-                        <div className="card-content">
-                          {link.logo ? (
-                            <img src={link.logo} alt={link.title} className="link-logo" />
-                          ) : (
-                            <div className="link-icon">{getIcon(link.icon)}</div>
-                          )}
-                          <h2 className="link-title">{link.title}</h2>
-                          <p className="link-description">{link.description}</p>
-                        </div>
-                      </a>
-                    )}
-
-                    {hasDetails && (
-                      <>
-                        <button
-                          className="expand-button"
-                          onClick={() => setExpandedCard(isExpanded ? null : link.id)}
-                          aria-label={isExpanded ? 'Show less' : 'Show more'}
-                        >
-                          {isExpanded ? <><ChevronUp size={16} /> Less</> : <><ChevronDown size={16} /> More</>}
-                        </button>
-
-                        {isExpanded && (
-                          <div className="card-details">
-                            {link.techStack && (
-                              <div className="detail-section">
-                                <h3>Tech Stack</h3>
-                                <div className="tech-badges">
-                                  {link.techStack.map((tech, idx) => (
-                                    <span key={idx} className="tech-badge">{tech}</span>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {link.features && (
-                              <div className="detail-section">
-                                <h3>Features</h3>
-                                <ul className="feature-list">
-                                  {link.features.map((feature, idx) => (
-                                    <li key={idx}>{feature}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                            )}
-
-                            {link.github && (
-                              <a
-                                href={link.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="github-link"
-                              >
-                                <Github size={20} className="github-icon" /> View on GitHub
-                              </a>
-                            )}
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                )
-              })}
+          <section className="intro-panel" aria-label="Introduction">
+            <img src={getImageUrl('tony.jpeg')} alt="Tony Cerrato" className="intro-photo" />
+            <div className="intro-body">
+              <p className="intro-lead">
+                Technology leader with 30+ years in software quality, cloud engineering, and AI-driven
+                automation, with experience at Microsoft, Synopsys, Veracode, and TraceLink.
+              </p>
+              <p className="intro-text">
+                Elrue Media Group is the umbrella for the independent apps below, built hands-on to
+                explore AI and modern cloud architecture across AWS and Azure.
+              </p>
+              <div className="intro-actions">
+                <Link to="/bio" className="intro-btn primary">
+                  <UserCircle size={16} /> Professional Bio
+                </Link>
+                <a href="https://www.linkedin.com/in/tony-cerrato-a22a123" target="_blank" rel="noopener noreferrer" className="intro-btn">
+                  <Linkedin size={16} /> LinkedIn
+                </a>
+                <a href="https://github.com/Elrue-Media-Group" target="_blank" rel="noopener noreferrer" className="intro-btn">
+                  <Github size={16} /> GitHub
+                </a>
+              </div>
             </div>
           </section>
 
@@ -320,8 +144,8 @@ function Home() {
               Independently built platforms spanning AI, cloud infrastructure, and modern web development
             </p>
             <div className="projects-list">
-              {projectLinks.map((link) => (
-                <div key={link.id} className="project-item">
+              {projects.map((link) => (
+                <div key={link.title} className="project-item">
                   <div className="project-logo-container">
                     {link.subtitle ? (
                       <div className="project-brand">
@@ -340,8 +164,16 @@ function Home() {
                     <div className="project-header">
                       <h3 className="project-title">{link.title}</h3>
                       {link.poweredBy && <span className="project-powered-badge">{link.poweredBy}</span>}
+                      {link.badge && <span className="project-status-badge">{link.badge}</span>}
                     </div>
                     <p className="project-description">{link.description}</p>
+                    {link.features && (
+                      <ul className="project-features">
+                        {link.features.map((feature) => (
+                          <li key={feature}>{feature}</li>
+                        ))}
+                      </ul>
+                    )}
                     {link.techStack && (
                       <div className="project-tech-stack">
                         {link.techStack.map((tech, idx) => (
@@ -387,7 +219,7 @@ function Home() {
                 <div key={item.id} className="publication-item">
                   <div className="publication-header">
                     <div className="publication-meta">
-                      <div className="publication-icon">{getIcon(item.icon, 24)}</div>
+                      <div className="publication-icon">{item.icon === 'Code2' ? <Code2 size={24} strokeWidth={1.5} /> : <FileText size={24} strokeWidth={1.5} />}</div>
                       <span className="publication-type">{item.type}</span>
                       <h3 className="publication-title">{item.title}</h3>
                     </div>
